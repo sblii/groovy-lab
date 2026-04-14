@@ -1,0 +1,255 @@
+/* breakpoints */
+/* 24rem  = 384  = XS  */
+/* 48rem  = 768  = S  */
+/* 64rem  = 1024 = M  */
+/* 80rem  = 1280 = L  */
+/* 120rem = 1800 = XL */
+
+@import url('https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap');
+
+
+/* defaults */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  background: #000;
+}
+
+a { 
+  color: #fff; 
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  transition: border-bottom 0.2s;
+}
+a:hover { 
+  border-bottom: 1px solid rgba(255,255,255,1);
+  box-shadow: 0px 5px 5px   orangered;
+}
+
+a.noline        { 
+  border-bottom: none;  
+}
+a.noline:hover  { 
+  border-bottom: 1px solid;  
+}
+
+span.nobr { 
+  white-space: nowrap;
+}
+
+em { font-style: italic; }
+
+/* utils: type */
+
+.t-right { text-align: right; }
+.t-center { text-align: center; }
+
+.t-mono {
+  font-family: "TASA Orbiter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.t-sans {
+  font-family: "TASA Orbiter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.t-sm {
+  font-size: 0.8125rem;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+}
+
+.t-md {
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+.t-shadow {
+  text-shadow: 0 0 4px #000;
+}
+
+/* utils: spacing */
+
+.m-1  { margin: 1rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+.pt-half { padding-top: 0.5rem; }
+.p-1  { padding: 1rem; }
+.pt-1 { padding-top: 1rem; }
+.pt-2 { padding-top: 2rem; }
+.pt-3 { padding-top: 3rem; }
+.pb-1 { padding-bottom: 1rem; }
+.pb-2 { padding-bottom: 2rem; }
+.pb-3 { padding-bottom: 3rem; }
+.pl-1 { padding-left: 1rem; }
+
+
+/* utils: layout */
+
+.l-fixed {
+  position: fixed;
+  z-index: 9999; 
+}
+.l-absolute {
+  position: absolute;
+}
+.l-bottom { 
+  bottom: 0 
+}
+
+/* element specifics */
+
+article section {
+  position: relative;
+}
+
+figure {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 48rem) { 
+  figure { 
+    background-color: #000; 
+  } 
+}
+
+figure img,
+figure iframe {
+  max-width: 100%;
+  max-height: calc(100dvh - 8rem);
+  position: absolute;
+  z-index: 2000;
+}
+
+figcaption {
+  padding: 1rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  text-align: right;
+  z-index: 8000;
+  text-shadow: 0 0 4px #000;
+}
+
+@media only screen and (max-width: 48rem) { 
+  figcaption { 
+    top:auto; 
+    bottom:0; 
+    text-align: left; 
+    width: 100%;
+    text-shadow: 0 0 4px #000;
+  } 
+}
+
+#info { 
+  width: 400px;
+  z-index: 1000; 
+  padding-top: 2rem;
+  position: fixed;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 48rem) { 
+  #info {
+    width: 100%; 
+    position: static;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+#info ol {
+  list-style-type: none;
+  padding-left: 2em;
+}
+
+#info ol li > span {
+  position: relative;
+  left: -0.5em;
+}
+
+#info ol ul {
+  list-style-type: "— ";
+  padding-left: 0.5em;
+}
+
+@media only screen and (max-width: 48rem) { 
+  #people {
+    padding-top: 1rem;
+  }
+}
+#people ul.bio li {
+  list-style-type: none;
+  margin-left: 2rem;
+  text-indent: -2rem;
+}
+#people ul.names {
+   padding-left: 0; 
+}
+#people ul.names li {
+  display: inline-block;
+}
+#people ul.names li:not(:last-child)::after {
+  content: ",";
+}
+
+#people footer {
+  margin-left: 400px;
+  max-width: 800px;
+}
+@media only screen and (max-width: 48rem) { 
+  #people footer {
+    margin-left: 0;
+  }
+}
+
+#rotate-bar:after {
+  content: "—"; 
+  animation: changeLetter 5s linear infinite;
+  display: inline-block;
+  width: 0.5em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes changeLetter {
+  0%   { content: "9"; }
+  10%  { content: "8"; }
+  20%  { content: "7"; }
+  30%  { content: "6"; }
+  40%  { content: "5"; }
+  50%  { content: "4"; }
+  60%  { content: "3"; }
+  70%  { content: "2"; }
+  80%  { content: "1"; }
+  90%  { content: "—"; }
+}
+
+/* interactive */
+
+.i-scroller {
+  min-height: 640px;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.i-scroller section {
+  min-height: 640px;
+  height: 100dvh;
+  scroll-snap-align: start;
+}
