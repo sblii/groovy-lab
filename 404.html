@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | Vibe Coding</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        /* 기본 배경: 검은 배경에 흰 글씨 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial, Helvetica, sans-serif';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .text-container {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* 커서 스타일 */
+        .cursor {
+            display: inline-block;
+            margin-left: 5px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* 타이핑 중 커서 숨기기 옵션을 위한 클래스 */
+        .cursor-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-container">
+        <span id="typing-content"></span><span id="cursor" class="cursor">|</span>
+    </div>
+
+    <script>
+        /**
+         * Vibe Coding: Text Type Animation (Vanilla JS Version)
+         */
+        const config = {
+            text: "404 Not Found",
+            typingSpeed: 150,      // 한 글자씩 써지는 속도
+            pauseDuration: 2000,   // 다 써진 후 멈추는 시간
+            deletingSpeed: 80,     // 지워지는 속도
+            initialDelay: 500,     // 처음 시작 대기 시간
+            cursorBlinkDuration: 0.5
+        };
+
+        const contentEl = document.getElementById('typing-content');
+        const cursorEl = document.getElementById('cursor');
+
+        let currentText = "";
+        let isDeleting = false;
+        let charIndex = 0;
+
+        // 1. 커서 깜빡임 애니메이션 (GSAP)
+        gsap.to(cursorEl, {
+            opacity: 0,
+            duration: config.cursorBlinkDuration,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut"
+        });
+
+        // 2. 타이핑 로직
+        function type() {
+            const fullText = config.text;
+
+            if (isDeleting) {
+                // 글자 지우기
+                currentText = fullText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // 글자 쓰기
+                currentText = fullText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            contentEl.textContent = currentText;
+
+            // 속도 조절
+            let delta = isDeleting ? config.deletingSpeed : config.typingSpeed;
+
+            // 문장이 완성되었을 때
+            if (!isDeleting && charIndex === fullText.length) {
+                delta = config.pauseDuration;
+                isDeleting = true;
+            } 
+            // 문장이 다 지워졌을 때
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                delta = 500; // 다음 루프 시작 전 잠깐 대기
+            }
+
+            setTimeout(type, delta);
+        }
+
+        // 초기 지연 후 시작
+        window.onload = () => {
+            setTimeout(type, config.initialDelay);
+        };
+    </script>
+</body>
+</html>
