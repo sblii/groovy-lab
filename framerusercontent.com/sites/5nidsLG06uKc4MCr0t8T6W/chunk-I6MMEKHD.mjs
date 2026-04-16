@@ -1,2 +1,0 @@
-function e(a,t){return{description:"Swiss Mono is a free minimalist one-page Framer template for small agencies, freelancers and studios. Showcase your services, projects, and team with clarity and simplicity. Perfect for design-focused businesses.",favicon:"https://framerusercontent.com/assets/yr0AGFkmTXo5fSpUDkE9qiRuSPw.png",robots:"max-image-preview:large",socialImage:"https://framerusercontent.com/assets/7jwVkWLOykl4q41YeanBUITTdRA.jpg",title:"Swiss Mono \u2013 Minimal Portfolio Onepager"}}export{e as a};
-//# sourceMappingURL=chunk-I6MMEKHD.mjs.map
