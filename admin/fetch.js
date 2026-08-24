@@ -33,7 +33,7 @@ logInForm.addEventListener('submit', async (event) => {
 
     const passwordInput = logInForm.password.value;
     const postPasswordPayload = { password: passwordInput };
-    const postPasswordResult = await postJSON('/api/login', postPasswordPayload);
+    const postPasswordResult = await postJSON('/api/verify', postPasswordPayload);
 
     if (postPasswordResult === true) {
         logInForm.style.display = 'none';
@@ -75,7 +75,7 @@ editForm.addEventListener('submit', async (event) => {
     postFormDataPayload.append('member', document.getElementById('member-select'));
     postFormDataPayload.append('file', editForm.uploadFile.files[0]);
 
-    const postFormDataResult = await postFile('/api/login', postFormDataPayload);
+    const postFormDataResult = await postFile('/api/upload', postFormDataPayload);
 
     if (postFormDataResult === true) {
         document.getElementById('edit-state-message').textContent = 'Upload Complete! Check your mypage.';
