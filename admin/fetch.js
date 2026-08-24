@@ -36,8 +36,8 @@ logInForm.addEventListener('submit', async (event) => {
     const postPasswordResult = await postJSON('/api/verify', postPasswordPayload);
 
     if (postPasswordResult === true) {
-        logInForm.style.display = 'none';
-        editForm.style.display = 'block';
+        document.getElementById('log-in-section').style.display = 'none';
+        document.getElementById('edit-section').style.display = 'block';
     } else {
         document.getElementById('password-state-message').textContent = 'The password is incorrect. Try again.';
     }
