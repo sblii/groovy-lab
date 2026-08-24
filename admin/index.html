@@ -1,0 +1,35 @@
+<!doctype html>
+<html dir="ltr" lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>Admin</title>
+        <script type="module" src="./fetch.js" defer></script>
+        <script type="module" src="./web.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <section id="log-in-section">
+            <h1>Log in</h1>
+            <form id="log-in-form">
+                <input type="password" name="password" placeholder="Password" id="log-in-password" autocomplete="current-password" />
+                <div class="state-message" id="password-state-message"></div>
+                <input type="submit" id="log-in-submit" name="passwordSubmitButton" value="Confirm" disabled />
+            </form>
+        </section>
+        <section id="edit-section" style="display: none">
+            <h1>Edit My Page</h1>
+            <form id="edit-form">
+                <select id="member-select">
+                    <option value="" selected>Select your name</option>
+                </select>
+                <label for="upload-file">
+                    <div id="upload-file-button-text">Upload .zip file for your mypage.</div>
+                </label>
+                <input type="file" accept=".zip" name="uploadFile" id="upload-file" style="display: none" />
+                <div class="state-message" id="edit-state-message"></div>
+                <input type="submit" value="Apply" name="uploadButton" disabled />
+            </form>
+        </section>
+    </body>
+</html>
