@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hubot+Sans:wdth,wght@125,900&family=IBM+Plex+Sans+KR&display=swap');
+
+:root {
+    --svg-arrow-down: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    --svg-upload: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KICA8cGF0aCBkPSJNNCAxN3YyYTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMnYtMiIvPgogIDxwb2x5bGluZSBwb2ludHM9IjcgOSAxMiA0IDE3IDkiLz4KICA8bGluZSB4MT0iMTIiIHkxPSI0IiB4Mj0iMTIiIHkyPSIxNiIvPgo8L3N2Zz4=');
+    --color-point-blue: #03aed2;
+    --color-modern-white: #e3e3e3;
+    --color-background-black: #0f0f0f;
+    --color-disabled-bg-gray: #171717;
+    --color-disabled-txt-gray: #8a8a8a;
+}
+
+body {
+    font-family: 'TASA Orbiter', 'IBM Plex Sans KR', sans-serif;
+    font-optical-sizing: auto;
+    background-color: var(--color-background-black);
+    color: var(--color-modern-white);
+    margin: 5%;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    border: none;
+}
+
+input[type='password'],
+label[for='upload-file'] div,
+select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-modern-white);
+    margin-top: 10px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-family: inherit;
+    line-height: 1;
+    color: var(--color-modern-white);
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type='password'] {
+    cursor: text;
+}
+
+select {
+    background-image: var(--svg-arrow-down);
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 12px auto;
+    cursor: pointer;
+}
+
+label[for='upload-file'] div {
+    background-image: var(--svg-upload);
+    background-repeat: no-repeat;
+    background-position: right 3px top 50%;
+    background-size: 20px auto;
+    cursor: pointer;
+}
+
+select:focus-visible {
+    outline: none;
+}
+
+input[type='submit'] {
+    width: 100%;
+    background: var(--color-point-blue);
+    color: var(--color-modern-white);
+    border: none;
+    border-radius: 8px;
+    margin-top: 12.5px;
+    padding: 15px;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+input[type='submit']:disabled {
+    background: var(--color-disabled-bg-gray);
+    color: var(--color-disabled-txt-gray);
+    cursor: default;
+}
+
+select:focus-visible,
+label[for='upload-file'] div:hover,
+input[type='password']:focus-visible {
+    outline: none;
+    border-color: var(--color-point-blue);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.state-message {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--color-point-blue);
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    font-size: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
