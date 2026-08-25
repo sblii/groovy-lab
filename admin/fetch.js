@@ -55,14 +55,14 @@ async function postFile(link, data) {
         const result = await response.json();
         if (response.ok) {
             console.log('Log) Complete to connect [%s]', result);
-            return true;
+            return { success: true, text: result.message };
         } else {
             console.log('Log) Fail to connect [%s]', result);
-            return false;
+            return { success: false, text: result.error || 'An unknown error has occurred' };
         }
     } catch (error) {
         console.error('Log) ERROR:', error);
-        return false;
+        return { success: false, text: 'The connection has expired' };
     }
 }
 
@@ -71,17 +71,21 @@ editForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     editForm.uploadButton.disabled = true;
 
+    const messageDiv = document.getElementById('edit-state-message');
+    messageDiv.textContent = 'Uploading...';
+
     const postFormDataPayload = new FormData();
-    postFormDataPayload.append('member', document.getElementById('member-select'));
+    postFormDataPayload.append('member', document.getElementById('member-select').value);
     postFormDataPayload.append('file', editForm.uploadFile.files[0]);
 
     const postFormDataResult = await postFile('/api/upload', postFormDataPayload);
 
-    if (postFormDataResult === true) {
+    messageDiv.textContent = postFormDataResult.text;
+
+    if (postFormDataResult.success === true) {
         document.getElementById('edit-state-message').textContent = 'Upload Complete! Check your mypage.';
-        editForm.uploadButton.disabled = false;
+        editForm.uploadButton.disabled = true;
     } else {
-        document.getElementById('edit-state-message').textContent = 'Upload Fail.';
         editForm.uploadButton.disabled = false;
     }
 });
