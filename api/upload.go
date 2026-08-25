@@ -23,7 +23,7 @@ func Uploader(w http.ResponseWriter, r *http.Request){
 	}
 
 	//Exception Handler + : SESSION CHECK
-	sessionToken := os.Getenv("SESSION_TOKEN")
+	sessionToken := os.Getenv("TOKEN")
 	cookie, err := r.Cookie("auth_session")
 
 	if err != nil || cookie.Value != sessionToken {
