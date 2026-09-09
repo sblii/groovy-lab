@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+.app-shell {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100svh;
+  padding: 76px 4px 4px;
+  background: var(--white);
+}
+
+.app-layout {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  min-width: 0;
+}
+
+.option-panel,
+.display-panel {
+  min-width: 0;
+  border-radius: 0.75rem;
+  background: var(--black);
+}
+
+.option-panel {
+  display: flex;
+  flex: 0 1 620px;
+  justify-content: center;
+}
+
+.display-panel {
+  display: flex;
+  flex: 1 1 1260px;
+  justify-content: center;
+  padding: clamp(24px, 5vw, 100px);
+}
+
+.display-cache-slot {
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.all-display-box {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.05vw, 20px);
+  align-self: flex-start;
+  width: min(100%, 1151.84px);
+  min-width: 0;
+}
+
+.all-display {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1151.84 / 578.86;
+}
+
+.all-display__video {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #131313;
+}
+
+.all-display__video--main {
+  top: 0;
+  left: 29.634%;
+  width: 52.415%;
+  aspect-ratio: 16 / 9;
+}
+
+.all-display__video--left {
+  top: 0;
+  left: 0;
+  width: 28.268%;
+  aspect-ratio: 9 / 16;
+}
+
+.all-display__video--bottom-left {
+  bottom: 0;
+  left: 29.634%;
+  width: 34.5%;
+  aspect-ratio: 16 / 9;
+}
+
+.all-display__video--bottom-right {
+  right: 0;
+  bottom: 0;
+  width: 34.5%;
+  aspect-ratio: 16 / 9;
+}
+
+.all-display__video--right {
+  top: 0;
+  right: 0;
+  width: 16.586%;
+  aspect-ratio: 9 / 16;
+}
+
+.all-display__iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 769px) {
+  .app-shell,
+  .app-layout,
+  .option-panel,
+  .display-panel,
+  .display-cache-slot {
+    height: 100vh;
+  }
+
+  .app-shell {
+    height: 100vh;
+  }
+
+  .app-layout,
+  .option-panel,
+  .display-panel,
+  .display-cache-slot {
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column-reverse;
+    min-height: calc(100svh - 80px);
+  }
+
+  .option-panel {
+    flex: 1 0 220px;
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .display-panel {
+    flex: none;
+    width: 100%;
+    height: var(--mobile-display-height, auto);
+    padding: 16px;
+    overflow: hidden;
+    transition: height 0.55s ease-in-out;
+  }
+
+  .display-cache-slot {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .display-panel {
+    transition: none;
+  }
+}
