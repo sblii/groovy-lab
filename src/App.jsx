@@ -45,6 +45,9 @@ const displayItems = [
   {
     video:
       "https://vimeo.com/1225553384?autoplay=1&muted=1&title=0&loop=1&byline=0&controls=0",
+    aspectRatio: "4 / 5",
+    videoWidth: 1080,
+    videoHeight: 1350,
     title: "리듬세상 [팬클럽] Remake",
     explain:
       "닌텐도 고전 게임 《리듬세상》의 ‘팬클럽’을 재해석하여 게임 인트로 모션그래픽을 제작하였다. 기존의 픽셀 기반 레트로 스타일에서 벗어나 현대적인 그래픽을 적용했으며, 게임 인트로 특유의 슬로우 모션 연출과 리듬감 있는 움직임을 살렸다.",
@@ -66,6 +69,9 @@ const displayItems = [
   {
     video:
       "https://vimeo.com/1225553446?autoplay=1&muted=1&title=0&loop=1&byline=0&controls=0",
+    aspectRatio: "9 / 16",
+    videoWidth: 1080,
+    videoHeight: 1920,
     title: "황혼",
     explain:
       "일상의 템포와 휴식의 관계성을 디지털 모션 아트 형식으로 탐구한 모션 그래픽이다. 화면 중앙을 지탱하는 신호등과 거리 표지판은 현대 사회가 강요하는 직진과 이동의 기호학적 상징이다. 동심원을 그리며 순환하는 별의 궤적은 멈추지 않고 흘러가는 시간을 정밀하게 시각화하며, 그 아래 교차하는 STOP, Take a Rest, GOOD NIGHT의 메시지는 관객에게 의도적인 일시정지를 제안한다.",
@@ -119,8 +125,8 @@ const AllDisplay = ({ items, active }) => {
               }}
               src={getVimeoEmbedUrl(item.video)}
               title={item.title}
-              width={index === 1 || index === 4 ? "1080" : "1920"}
-              height={index === 1 || index === 4 ? "1920" : "1080"}
+              width={item.videoWidth ?? 1920}
+              height={item.videoHeight ?? 1080}
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               className="all-display__iframe"
@@ -270,6 +276,9 @@ function App() {
                     title={item.title}
                     explain={item.explain}
                     active={isActive}
+                    aspectRatio={item.aspectRatio}
+                    videoWidth={item.videoWidth}
+                    videoHeight={item.videoHeight}
                   />
                 </div>
               );

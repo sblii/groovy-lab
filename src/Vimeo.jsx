@@ -48,7 +48,15 @@ const DisplayBox = ({ video, title, explain, active = true }) => {
   );
 };
 
-const DisplayBox_hz = ({ video, title, explain, active = true }) => {
+const DisplayBox_hz = ({
+  video,
+  title,
+  explain,
+  active = true,
+  aspectRatio = "9 / 16",
+  videoWidth = 1080,
+  videoHeight = 1920,
+}) => {
   // 일반 Vimeo 링크가 들어올 경우 임베드(플레이어) 링크로 자동 변환
   const embedUrl = video.includes("player.vimeo.com")
     ? video
@@ -57,12 +65,15 @@ const DisplayBox_hz = ({ video, title, explain, active = true }) => {
 
   return (
     <div className="display-box display-box--horizontal">
-      <div className="display-box__video display-box--horizontal__video">
+      <div
+        className="display-box__video display-box--horizontal__video"
+        style={{ aspectRatio }}
+      >
         <iframe
           ref={iframeRef}
           src={embedUrl}
-          width="1080"
-          height="1920"
+          width={videoWidth}
+          height={videoHeight}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
           title={title}

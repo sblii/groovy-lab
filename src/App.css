@@ -47,14 +47,14 @@
   flex-direction: column;
   gap: clamp(12px, 1.05vw, 20px);
   align-self: flex-start;
-  width: min(100%, 1151.84px);
+  width: min(100%, 1289.308px);
   min-width: 0;
 }
 
 .all-display {
   position: relative;
   width: 100%;
-  aspect-ratio: 1151.84 / 578.86;
+  aspect-ratio: 1289.308 / 578.86;
 }
 
 .all-display__video {
@@ -66,36 +66,36 @@
 
 .all-display__video--main {
   top: 0;
-  left: 29.634%;
-  width: 52.415%;
+  left: 37.137%;
+  width: 46.827%;
   aspect-ratio: 16 / 9;
 }
 
 .all-display__video--left {
   top: 0;
   left: 0;
-  width: 28.268%;
-  aspect-ratio: 9 / 16;
+  width: 35.918%;
+  aspect-ratio: 4 / 5;
 }
 
 .all-display__video--bottom-left {
   bottom: 0;
-  left: 29.634%;
-  width: 34.5%;
+  left: 37.137%;
+  width: 30.822%;
   aspect-ratio: 16 / 9;
 }
 
 .all-display__video--bottom-right {
   right: 0;
   bottom: 0;
-  width: 34.5%;
+  width: 30.822%;
   aspect-ratio: 16 / 9;
 }
 
 .all-display__video--right {
   top: 0;
   right: 0;
-  width: 16.586%;
+  width: 14.816%;
   aspect-ratio: 9 / 16;
 }
 
